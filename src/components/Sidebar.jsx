@@ -11,6 +11,8 @@ import { useState, useCallback } from "react"
 
 export default function Sidebar({ initialMenuItems }) {
   let [newMenuItem, setNewMenuItem] = useState("")
+  let [menuItems, setMenuItems] = useState(initialMenuItems)
+  
 
   // TODO: 2 Using a state hook, maintain the current menu items as an array state.
   // let [menuItems, setMenuItems] = useState(initialMenuItems)
@@ -40,7 +42,7 @@ export default function Sidebar({ initialMenuItems }) {
   return (
     <div>
       <ul>
-        {initialMenuItems.map(item => (
+        {menuItems.map(item => (
         <li>{item}</li>
       ))}
       </ul>
@@ -70,3 +72,19 @@ export default function Sidebar({ initialMenuItems }) {
     </div>
   )
 }
+
+//My understanding of the logic:
+/*
+
+Props = can’t change (thinking of it like someone else’s opinion)
+
+State = your mind (you can change your opinion, this is "our" thing)
+
+InitialMenuItems is a prop because it is given to us. We can’t change it. This is the list with all the funny bird names.
+
+menuItems is our copy of the initial items that we can change for ourselves (sort of like how we forked the directory for the assignment?)
+We have to use this with map since this is what we are allowed to change.
+
+setMenuItems is the tool we use when we write the new menu item, this automatically updates what happens onscreen?
+
+*/
