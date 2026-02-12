@@ -25,13 +25,15 @@ export default function Sidebar({ initialMenuItems }) {
   let addMenuItem = useCallback(() => { //we have to type something in the input box
 
     setMenuItems([newMenuItem, ...menuItems])
-    console.log("Added menu item")
+    setNewMenuItem("") //make it blank after to keep using it with other inputs
 
+    console.log("Added menu item")
+    
     //   // TODO: 3. Add a new menu item to the correct variable associated with this class.
     //   // This involves adding a parameter and changing a class instance variable (props).
     //   setMenuItems([item, ...menuItems])
 
-  }, [])
+  }, [menuItems, newMenuItem])
 
   // TODO: 4. Display ONLY the menu items that contain the filter element value
   // "term" in them. Each menu item should be an unordered list item wrapped in an unordered list (ul) element.
@@ -99,5 +101,19 @@ setMenuItems is the tool we use when we write the new menu item, this automatica
 addMenuItems and newMenuItem are self explanatory.
 
 useCallback is just instructions to do something when a certain condition happens, in this case when we put something in the input box?
+
+*/
+
+//todo list: condition 4, fix bug where new inputs dont show
+//Condition 4 logic: loop through the existing menu items and find a match with what gets put in the filter box. If there's a match then display it.
+
+/*for(the list of menuItems){
+
+  if(regex to check whatever letter is inputted in the filter box){
+  
+  display whatever matches and don't show whatever doesn't match
+}
+}
+
 
 */
