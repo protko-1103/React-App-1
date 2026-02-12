@@ -133,4 +133,5 @@ menuitems.filter(item => /regex here/)?
 new RegExp for dynamic (which is our case bc its based on user input) (thank you stackoverflow!!!!)
 
 new RegExp (filter , "i") will take in the input on the filter box and check it in case insensitive way
+did some research and needs .test to actually do anything bc thats where the real checking occurs
 */
