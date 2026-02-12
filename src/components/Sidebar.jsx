@@ -22,7 +22,9 @@ export default function Sidebar({ initialMenuItems }) {
   // Adds a single string passed in as parameter to the state element
   // "menuItems" that holds the set of current menu items.
 
-  let addMenuItem = useCallback(() => {
+  let addMenuItem = useCallback(() => { //we have to type something in the input box
+
+    setMenuItems([newMenuItem, ...menuItems])
     console.log("Added menu item")
 
     //   // TODO: 3. Add a new menu item to the correct variable associated with this class.
@@ -55,7 +57,7 @@ export default function Sidebar({ initialMenuItems }) {
       ></input>
       <br />
       <button
-        onClick={() => {
+        onClick={addMenuItem=> {
           /* TODO: 3 */
         }}
       >
@@ -86,5 +88,7 @@ menuItems is our copy of the initial items that we can change for ourselves (sor
 We have to use this with map since this is what we are allowed to change.
 
 setMenuItems is the tool we use when we write the new menu item, this automatically updates what happens onscreen?
+
+useCallback is just instructions to do something when a certain condition happens. 
 
 */
