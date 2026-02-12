@@ -33,10 +33,14 @@ export default function Sidebar({ initialMenuItems }) {
     //   // This involves adding a parameter and changing a class instance variable (props).
     //   setMenuItems([item, ...menuItems])
 
-  }, [menuItems, newMenuItem])
+  }, [menuItems, newMenuItem]) //im ngl i was testing stuff here and this didn't crash the code so
 
   // TODO: 4. Display ONLY the menu items that contain the filter element value
   // "term" in them. Each menu item should be an unordered list item wrapped in an unordered list (ul) element.
+
+
+
+
 
 
 
@@ -46,7 +50,9 @@ export default function Sidebar({ initialMenuItems }) {
   return (
     <div>
       <ul>
-        {menuItems.map(item => (
+        {menuItems
+        .filter(item => new RegExp(filter, "i").test(item)) //regex has to go here , use "i" flag for case insensitive & new RegExp since it's dynamic. .test makes sure the regex actually gets applied
+        .map(item => (
         <li>{item}</li>
       ))}
       </ul>
@@ -84,7 +90,7 @@ export default function Sidebar({ initialMenuItems }) {
   )
 }
 
-//My understanding of the logic:
+//My understanding of the logic/"show your work" type of deal like in math class:
 /*
 
 Props = can’t change (thinking of it like someone else’s opinion)
@@ -104,8 +110,7 @@ useCallback is just instructions to do something when a certain condition happen
 
 */
 
-//todo list: condition 4, fix bug where new inputs dont show
-//Condition 4 logic: loop through the existing menu items and find a match with what gets put in the filter box. If there's a match then display it.
+//todo 4 logic: loop through the existing menu items and find a match with what gets put in the filter box. If there's a match then display it.
 
 /*for(the list of menuItems){
 
@@ -115,5 +120,17 @@ useCallback is just instructions to do something when a certain condition happen
 }
 }
 
+i can use map for this though probably instead of for() 
 
+
+menuItems.map(item => <li>{item}</li>) <- this is the ul we have this already, but now we have to filter stuff in this UL depending on what gets put into the box
+
+filter(callbackFn) this is the syntax from react website, literally just filters through it so i dont need the if statement
+
+menuitems.filter(item => /regex here/)?
+/i case insensitive flag this is probably what i need i have to do something like this
+
+new RegExp for dynamic (which is our case bc its based on user input) (thank you stackoverflow!!!!)
+
+new RegExp (filter , "i") will take in the input on the filter box and check it in case insensitive way
 */
