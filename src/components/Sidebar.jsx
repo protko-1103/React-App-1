@@ -56,13 +56,20 @@ export default function Sidebar({ initialMenuItems }) {
         onChange={(event) => setNewMenuItem(event.target.value)}
       ></input>
       <br />
+      
       <button
-        onClick={addMenuItem=> {
-          /* TODO: 3 */
+        onClick={() => {
+          
+          addMenuItem(newMenuItem)
+          /* TODO: 3
+          this is supposed to add the new menu item */
         }}
       >
         Add Item
       </button>
+
+
+
       <br />
       <input
         id="filter"
@@ -80,7 +87,7 @@ export default function Sidebar({ initialMenuItems }) {
 
 Props = can’t change (thinking of it like someone else’s opinion)
 
-State = your mind (you can change your opinion, this is "our" thing)
+State = can change (you can change your opinion, this is "our" thing)
 
 InitialMenuItems is a prop because it is given to us. We can’t change it. This is the list with all the funny bird names.
 
@@ -89,6 +96,8 @@ We have to use this with map since this is what we are allowed to change.
 
 setMenuItems is the tool we use when we write the new menu item, this automatically updates what happens onscreen?
 
-useCallback is just instructions to do something when a certain condition happens. 
+addMenuItems and newMenuItem are self explanatory.
+
+useCallback is just instructions to do something when a certain condition happens, in this case when we put something in the input box?
 
 */
